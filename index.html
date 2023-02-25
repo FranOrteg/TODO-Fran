@@ -8,6 +8,7 @@
     <title>TO DO LIST</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/modelo.js"></script>
     <script src="./js/controlador.js"></script>
 
 </head>
@@ -23,47 +24,42 @@
                 <h2>Hola, Fran</h2>
             </div>
             <div class="inputs">
-                <input type="text" placeholder="Introduce tu tarea">
-                <select id="selectPriority">
-                    <option value="">Selecciona prioridad</option>
-                    <option value="diaria">Diaria</option>
-                    <option value="mensual">Mensual</option>
-                    <option value="urgente">Urgente</option>
-                </select>
-                <button type="submit">GUARDAR</button>
+                <form>
+                    <input type="text" placeholder="Introduce tu tarea">
+                    <select id="selectPriority">
+                        <option value="">Selecciona prioridad</option>
+                        <option value="diaria">Diaria</option>
+                        <option value="mensual">Mensual</option>
+                        <option value="urgente">Urgente</option>
+                    </select>
+                    <button type="submit">GUARDAR</button>
+                </form>
             </div>
         </header>
         <hr>
         <main>
             <div class="selector">
-                <select id="selectPriority">
-                    <option value="">Selecciona prioridad</option>
-                    <option value="diaria">Diaria</option>
-                    <option value="mensual">Mensual</option>
-                    <option value="urgente">Urgente</option>
-                </select>
-                <input type="text">
+                <form>
+                    <select id="selectPriority">
+                        <option value="">Selecciona prioridad</option>
+                        <option value="diaria">Diaria</option>
+                        <option value="mensual">Mensual</option>
+                        <option value="urgente">Urgente</option>
+                    </select>
+                    <input type="text">
+                </form>
             </div>
             <hr>
-
             <div class="tareas">
-                <ul id="lista">
-                    <li>
-                        <i class="fa-regular fa-circle"></i>
-                        <p>Hacer tarea</p>
-                        <i class="fa-solid fa-burst"></i>
-                    </li>
-                    <li>
-                        <i class="fa-regular fa-circle"></i>
-                        <p>Hacer tarea</p>
-                        <i class="fa-solid fa-burst"></i>
-                    </li>
-                    <li>
-                        <i class="fa-regular fa-circle"></i>
-                        <p>Hacer tarea</p>
-                        <i class="fa-solid fa-burst"></i>
-                    </li>
-                </ul>
+                <section id="lista">
+                    <!--     <ul>
+                        <li class="prioridad">
+                            <i class="fa-regular fa-circle"></i>
+                            <p>Hacer tarea</p>
+                            <i class="fa-solid fa-burst"></i>
+                        </li>
+                    </ul> -->
+                </section>
             </div>
             <hr>
             <footer>
