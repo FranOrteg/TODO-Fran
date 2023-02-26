@@ -24,9 +24,9 @@
                 <h2>Hola, Fran</h2>
             </div>
             <div class="inputs">
-                <form>
-                    <input type="text" placeholder="Introduce tu tarea">
-                    <select id="selectPriority">
+                <form id="addTarea">
+                    <input type="text" name="titulo" id="titulo" placeholder=" Introduce tu tarea">
+                    <select id="selectPriority" name="prioridad" id="prioridad">
                         <option value="">Selecciona prioridad</option>
                         <option value="diaria">Diaria</option>
                         <option value="mensual">Mensual</option>
@@ -40,25 +40,25 @@
         <main>
             <div class="selector">
                 <form>
-                    <select id="selectPriority">
+                    <select id="select_search">
                         <option value="">Selecciona prioridad</option>
                         <option value="diaria">Diaria</option>
                         <option value="mensual">Mensual</option>
                         <option value="urgente">Urgente</option>
                     </select>
-                    <input type="text">
+                    <input type="text" id="search" placeholder="search tarea">
                 </form>
             </div>
             <hr>
             <div class="tareas">
-                <section id="lista">
-                    <!--     <ul>
-                        <li class="prioridad">
+                <section>
+                    <ul id="lista">
+                        <!-- <li class="prioridad">
                             <i class="fa-regular fa-circle"></i>
                             <p>Hacer tarea</p>
                             <i class="fa-solid fa-burst"></i>
-                        </li>
-                    </ul> -->
+                        </li> -->
+                    </ul>
                 </section>
             </div>
             <hr>

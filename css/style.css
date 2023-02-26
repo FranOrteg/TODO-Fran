@@ -3,3 +3,31 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.urgente {
+    /* background-color: tomato; */
+    border: 2px solid tomato
+}
+
+.diaria {
+    border: 2px solid aqua;
+}
+
+.mensual {
+    border: 2px solid yellow;
+}
+
+
+#lista li {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 10px 0px 10px;
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    align-items: center;
+}
+
+#lista li i {
+    margin: 0px 5px 0px 5px;
+}

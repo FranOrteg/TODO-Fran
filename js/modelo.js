@@ -1,3 +1,5 @@
+let id_tarea = 4;
+
 const listaTareas = [
     {
         id_tarea: 1,

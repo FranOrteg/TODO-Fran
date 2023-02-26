@@ -10,25 +10,84 @@ function printTasks(pList, pSectionDom) {
     pList.forEach(item => printOneTask(item, pSectionDom))
 }
 
-{/* < ul >
-    <li class="prioridad">
-        <i class="fa-regular fa-circle"></i>
-        <p>Hacer tarea</p>
-        <i class="fa-solid fa-burst"></i>
-    </li>
-</ul > */}
 
 function printOneTask(pTask, pSectionDom) {
-    let ul = document.createElement('ul');
-    let li = document.createElement('li');
+    const li = document.createElement('li')
     li.classList.add('prioridad')
+    li.classList.add(pTask.prioridad)
+    const i = document.createElement('i')
+    i.classList.add('fa-regular')
+    i.classList.add('fa-circle')
+    const p = document.createElement('p')
+    p.textContent = `${pTask.titulo}`
+    const i2 = document.createElement('i')
+    i2.classList.add('fa-solid')
+    i2.classList.add('fa-burst')
 
-    pSectionDom.innerHTML += `<i class="fa-regular fa-circle"></i>
-                              <p>${pTask.titulo}</p>
-                              <i class="fa-solid fa-burst"></i>`
+    li.appendChild(i)
+    li.appendChild(p)
+    li.appendChild(i2)
 
-    ul.appendChild(li)
-    pSectionDom.appendChild(ul)
+    pSectionDom.appendChild(li)
 }
 
 printTasks(listaTareas, lista)
+
+//evento del formulario de registro  de tareas aqui solo tengo que capturar los datos, la insercion de los datos va en el controlador.
+
+const addTarea = document.querySelector('#addTarea');
+addTarea.addEventListener('submit', getTaskRegister);
+
+
+function getTaskRegister(event) {
+    event.preventDefault();
+    // tenemos que controlar que el input no este vacio
+
+    if (event.target.titulo.value !== "" && event.target.prioridad.value !== "") {
+
+        const newTask = {
+            titulo: event.target.titulo.value,
+            prioridad: event.target.prioridad.value,
+        }
+
+        /* arrayNuevatarea.push(newTask)
+        localStorage.setItem('tarea', JSON.stringify(arrayNuevatarea)) */
+
+        let result = addTask(listaTareas, newTask)
+        if (result.status) {
+            event.target.reset();
+            printOneTask(newTask, lista);
+        } else {
+            alert(result.msg)
+        }
+    } else {
+        alert('Los campos no pueden estar vacios')
+    }
+}
+
+// buscador semantico
+// capturamos el input
+
+const search = document.querySelector('#search');
+search.addEventListener('input', getSearch);
+
+function getSearch(event) {
+    let busqueda = event.target.value;
+    let listaFiltrada = searchByTask(listaTareas, busqueda);
+    printTasks(listaFiltrada, lista)
+}
+
+// buscador por selector
+
+const selectFilter = document.querySelector('#select_search');
+selectFilter.addEventListener('input', getSelectSearch);
+
+function getSelectSearch(event) {
+    if (event.target.value !== "") {
+        let busqueda = event.target.value;
+        let listaFiltrada = searchByTasks(listaTareas, busqueda)
+        printTasks(listaFiltrada, lista)
+    } else {
+        printTasks(listaTareas, lista)
+    }
+}
