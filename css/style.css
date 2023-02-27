@@ -1,33 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&family=Tilt+Warp&display=swap');
+
+/* font-family: 'Rubik',
+sans-serif;
+font-family: 'Tilt Warp',
+cursive;
+ */
+
+:root {
+    --white: #fafafb;
+    --blue: #12c2e9;
+    --blue2: #03d499;
+    --red: #f64f59;
+    --purple: #c471ed;
+    --purple2: #b861e4;
+    --titleFont: 'Tilt Warp', sans-serif;
+    --fontText: 'Rubik', sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.urgente {
-    /* background-color: tomato; */
-    border: 2px solid tomato
+body {
+    background: linear-gradient(to bottom, var(--red), var(--purple), var(--blue));
+    height: 100vh;
+    font-family: var(--fontText);
+    color: var(--white);
 }
 
-.diaria {
-    border: 2px solid aqua;
+.container {
+    width: 400px;
+    height: 600px;
+    margin: 0 auto;
+    max-width: 90%;
 }
 
-.mensual {
-    border: 2px solid yellow;
+/* inicio header */
+
+header h1 {
+    font-family: var(--titleFont);
+    padding: 50px 0px 5px 0px;
+    margin-bottom: 20px;
+}
+
+#saludo h2 {
+    letter-spacing: 1px;
+    padding: 20px 0px 5px 0px;
+    margin-bottom: 20px;
+}
+
+#fecha {
+    letter-spacing: 1px;
+    padding: 20px 0px 5px 0px;
+}
+
+/* fin header */
+
+/* inputs agregar tarea */
+
+#addTarea {
+    background-color: var(--white);
+    border-radius: 15px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#titulo {
+    width: 40%;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--white);
+}
+
+#titulo::placeholder {
+    color: var(--purple)
+}
+
+
+#selectPriority {
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--white);
+    width: 25%;
+    cursor: pointer;
+    color: var(--purple);
+}
+
+#guardar {
+    border: none;
+    background-color: var(--white)
+}
+
+#guardar i {
+    font-size: 35px;
+    color: var(--purple);
+    width: 25%;
+    padding-right: 15px;
+}
+
+#guardar i:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* seccion selector */
+
+#selecTarea {
+    background-color: var(--white);
+    border-radius: 15px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+
+}
+
+#search {
+    width: 40%;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--white);
+}
+
+#search::placeholder {
+    color: var(--purple);
+}
+
+#select_search {
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--white);
+    width: 40%;
+    cursor: pointer;
+    color: var(--purple);
+    margin-right: 39px;
+}
+
+/* fin selector */
+
+/* inicio zona tareas */
+
+.tareas h3 {
+    letter-spacing: 1px;
+    padding: 20px 0px 5px 0px;
+    margin-bottom: 20px;
 }
 
 
 #lista li {
     list-style: none;
     display: flex;
+    background: linear-gradient(to bottom, var(--blue2), var(--purple2));
     justify-content: space-between;
-    margin: 0px 10px 0px 10px;
-    /* border: 1px solid black; */
-    border-radius: 5px;
+    padding: 10px;
+    border-radius: 15px;
     align-items: center;
+    margin: 10px;
+    width: 100%;
+}
+
+#lista li p {
+    letter-spacing: 1px;
 }
 
 #lista li i {
-    margin: 0px 5px 0px 5px;
+    font-size: 20px;
+}
+
+#lista li i:hover {
+    color: var(--purple2);
+    cursor: pointer;
+}
+
+.line-through {
+    text-decoration: line-through;
+    color: var(--purple2);
+}
+
+
+
+/* .urgente {
+    background-color: tomato;
+    border: 2px solid tomato
+}
+ */
+/* 
+.diaria {
+    border: 2px solid aqua;
+}
+
+.mensual {
+    border: 2px solid yellow;
 }

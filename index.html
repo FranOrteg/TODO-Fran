@@ -19,39 +19,38 @@
     <div class="container">
         <header>
             <h1>GESTOR DE TAREAS</h1>
-            <hr>
-            <div id="fecha">
+            <div id="saludo">
+                <div id="hecha">27 febrero 2023</div>
                 <h2>Hola, Fran</h2>
             </div>
             <div class="inputs">
                 <form id="addTarea">
-                    <input type="text" name="titulo" id="titulo" placeholder=" Introduce tu tarea">
-                    <select id="selectPriority" name="prioridad" id="prioridad">
-                        <option value="">Selecciona prioridad</option>
+                    <input type="text" name="titulo" id="titulo" placeholder="Introduce tu tarea">
+                    <select id="selectPriority" name="prioridad">
+                        <option value="">Prioridad</option>
                         <option value="diaria">Diaria</option>
                         <option value="mensual">Mensual</option>
                         <option value="urgente">Urgente</option>
                     </select>
-                    <button type="submit">GUARDAR</button>
+                    <button type="submit" id="guardar"><i class="fa-solid fa-cloud-arrow-down"></i></button>
                 </form>
             </div>
         </header>
-        <hr>
         <main>
             <div class="selector">
-                <form>
+                <form id="selecTarea">
+                    <input type="text" id="search" placeholder="search tarea">
                     <select id="select_search" type="change">
                         <option value="">Selecciona prioridad</option>
                         <option value="diaria">Diaria</option>
                         <option value="mensual">Mensual</option>
                         <option value="urgente">Urgente</option>
                     </select>
-                    <input type="text" id="search" placeholder="search tarea">
                 </form>
             </div>
-            <hr>
             <div class="tareas">
                 <section>
+                    <h3>Tus tareas pendientes</h3>
                     <ul id="lista">
                         <!-- <li class="prioridad">
                             <i class="fa-regular fa-circle"></i>
