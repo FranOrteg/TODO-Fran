@@ -23,6 +23,8 @@ function printOneTask(pTask, pSectionDom) {
     const i2 = document.createElement('i')
     i2.classList.add('fa-solid')
     i2.classList.add('fa-burst')
+    i2.addEventListener('click', getDelete)
+
 
     li.appendChild(i)
     li.appendChild(p)
@@ -58,6 +60,7 @@ function getTaskRegister(event) {
             event.target.reset();
             printOneTask(newTask, lista);
         } else {
+            event.target.reset()
             alert(result.msg)
         }
     } else {
@@ -91,3 +94,15 @@ function getSelectSearch(event) {
         printTasks(listaTareas, lista)
     }
 }
+
+// Borrar tareas
+
+const iconoBorrar = document.querySelectorAll('.fa-solid')
+console.log(iconoBorrar)
+
+
+function getDelete(event) {
+    let tarea = event.target.parentNode;
+    console.log(event.target.parentNode)
+    tarea.parentNode.removeChild(tarea);
+} 

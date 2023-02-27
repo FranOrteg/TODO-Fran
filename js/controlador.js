@@ -27,3 +27,6 @@ function searchByTask(pList, pPalabra) {
 function searchByTasks(pList, pSeleccion) {
     return pList.filter(task => task.prioridad === pSeleccion)
 }
+
+// borrrar
+
