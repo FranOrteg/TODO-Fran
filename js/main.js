@@ -1,7 +1,7 @@
 // capturamos los elementos con los que vamos a trabajar
 
 const lista = document.querySelector('#lista')
-console.log(lista)
+let listaTareas = JSON.parse(localStorage.getItem('lista')) || [];
 
 // pintar los elementos
 
@@ -33,7 +33,16 @@ function printOneTask(pTask, pSectionDom) {
     pSectionDom.appendChild(li)
 }
 
-printTasks(listaTareas, lista)
+/* printTasks(listaTareas, lista) */
+
+function init() {
+    if (localStorage.getItem('lista') === null) {
+        localStorage.setItem('lista', JSON.stringify(listaTareas))
+    }
+    printTasks(listaTareas, lista)
+}
+
+init()
 
 //evento del formulario de registro  de tareas aqui solo tengo que capturar los datos, la insercion de los datos va en el controlador.
 
@@ -52,13 +61,11 @@ function getTaskRegister(event) {
             prioridad: event.target.prioridad.value,
         }
 
-        /* arrayNuevatarea.push(newTask)
-        localStorage.setItem('tarea', JSON.stringify(arrayNuevatarea)) */
-
         let result = addTask(listaTareas, newTask)
         if (result.status) {
             event.target.reset();
             printOneTask(newTask, lista);
+            localStorage.setItem('lista', JSON.stringify(listaTareas));
         } else {
             event.target.reset()
             alert(result.msg)
@@ -103,6 +110,8 @@ console.log(iconoBorrar)
 
 function getDelete(event) {
     let tarea = event.target.parentNode;
-    console.log(event.target.parentNode)
+    let taskId = tarea.getAttribute('data-task-id');
+    listaTareas = listaTareas.filter((task) => task.id_tarea !== parseInt(taskId));
     tarea.parentNode.removeChild(tarea);
-} 
+    localStorage.setItem('lista', JSON.stringify(listaTareas));
+}

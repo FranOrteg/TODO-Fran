@@ -1,6 +1,6 @@
-let id_tarea = 4;
+let id_tarea = 0;
 
-const listaTareas = [
+const listaTareasModelo = [
     {
         id_tarea: 1,
         titulo: 'Estudiar JavaScript',
