@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/modelo.js"></script>
+    <script src="./js/controlador.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>GESTOR DE TAREAS</h1>
+            <div id="saludo">
+                <div id="fecha"></div>
+                <h2 id="nombre">Hola, Fran</h2>
+            </div>
+            <div class="inputs">
+                <form id="addTarea">
+                    <input type="text" name="titulo" id="titulo" placeholder="Introduce tu tarea">
+                    <select id="selectPriority" name="prioridad">
+                        <option value="">Prioridad</option>
+                        <option value="diaria">Diaria</option>
+                        <option value="mensual">Mensual</option>
+                        <option value="urgente">Urgente</option>
+                    </select>
+                    <button type="submit" id="guardar"><i class="fa-solid fa-cloud-arrow-down"></i></button>
+                </form>
+            </div>
+        </header>
+        <main>
+            <div class="selector">
+                <form id="selecTarea">
+                    <input type="text" id="search" placeholder="search tarea">
+                    <select id="select_search" type="change">
+                        <option value="">Selecciona prioridad</option>
+                        <option value="diaria">Diaria</option>
+                        <option value="mensual">Mensual</option>
+                        <option value="urgente">Urgente</option>
+                    </select>
+                </form>
+            </div>
+            <div class="tareas">
+                <section>
+                    <h3>Tus tareas pendientes</h3>
+                    <ul id="lista">
+                        <!-- <li class="prioridad">
+                            <i class="fa-regular fa-circle"></i>
+                            <p>Hacer tarea</p>
+                            <i class="fa-solid fa-burst"></i>
+                        </li> -->
+                    </ul>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <h2>FRAN'S STUDIO</h2>
+            <i class="fa-solid fa-frog"></i>
+        </footer>
+    </div>
+
+
+
+
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
