@@ -14,15 +14,20 @@ function printTasks(pList, pSectionDom) {
 function printOneTask(pTask, pSectionDom) {
     const li = document.createElement('li')
     li.classList.add('prioridad')
-    li.classList.add(pTask.prioridad)
+
     const i = document.createElement('i')
     i.classList.add('fa-regular')
     i.classList.add('fa-circle')
+    i.classList.add(pTask.prioridad)
+    i.dataset.id = pTask.id_tarea
+    console.log(i)
     const p = document.createElement('p')
+    p.classList.add('tachado')
     p.textContent = `${pTask.titulo}`
     const i2 = document.createElement('i')
     i2.classList.add('fa-solid')
     i2.classList.add('fa-burst')
+    /* i2.dataset.id_tarea = pTask.id */
     i2.addEventListener('click', getDelete)
 
 
@@ -34,6 +39,8 @@ function printOneTask(pTask, pSectionDom) {
 }
 
 /* printTasks(listaTareas, lista) */
+
+// Funcion init: si el local storage esta vacio, setItem de la lista  
 
 function init() {
     if (localStorage.getItem('lista') === null) {
@@ -104,14 +111,41 @@ function getSelectSearch(event) {
 
 // Borrar tareas
 
-const iconoBorrar = document.querySelectorAll('.fa-solid')
+const iconoBorrar = document.querySelectorAll('.fa-burst')
 console.log(iconoBorrar)
 
 
 function getDelete(event) {
     let tarea = event.target.parentNode;
-    let taskId = tarea.getAttribute('data-task-id');
-    listaTareas = listaTareas.filter((task) => task.id_tarea !== parseInt(taskId));
+    console.log(event.target.parentNode)
+    let taskId = tarea.getAttribute('data-id');
+    console.log(taskId)
+    listaTareas.splice(taskId, 1);
+    console.log(listaTareas)
     tarea.parentNode.removeChild(tarea);
     localStorage.setItem('lista', JSON.stringify(listaTareas));
 }
+
+// line-through
+
+
+const iconos = document.querySelectorAll('.fa-regular');
+
+for (let icono of iconos) {
+    icono.addEventListener('click', () => {
+        const texto = icono.parentElement.querySelector('.tachado');
+        texto.classList.toggle('line-through')
+    })
+}
+
+// fecha
+
+const fechaDom = document.querySelector('#fecha');
+
+const fecha = new Date();
+const dia = fecha.getDate();
+const mes = fecha.getMonth() + 1;
+const anio = fecha.getFullYear();
+console.log('fexa', fecha)
+
+fechaDom.innerText = `${dia}/${mes}/${anio}`

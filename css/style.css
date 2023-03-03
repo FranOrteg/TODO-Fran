@@ -25,7 +25,7 @@ cursive;
 
 body {
     background: linear-gradient(to bottom, var(--red), var(--purple), var(--blue));
-    height: 100vh;
+    height: 130vh;
     font-family: var(--fontText);
     color: var(--white);
 }
@@ -52,8 +52,9 @@ header h1 {
 }
 
 #fecha {
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     padding: 20px 0px 5px 0px;
+    font-size: 20px;
 }
 
 /* fin header */
@@ -182,6 +183,7 @@ header h1 {
     font-size: 20px;
 }
 
+
 #lista li i:hover {
     color: var(--purple2);
     cursor: pointer;
@@ -192,25 +194,28 @@ header h1 {
     color: var(--purple2);
 }
 
-
 footer {
     font-family: var(--titleFont);
     margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+footer i {
+    color: var(--white);
+    font-size: 25px;
 }
 
 
-/* .urgente {
-    background-color: tomato;
-    border: 2px solid tomato
+.urgente {
+    color: tomato;
 }
- */
-/* 
+
 .diaria {
-    border: 2px solid aqua;
+    color: green;
 }
 
 .mensual {
-    border: 2px solid yellow;
+    color: goldenrod;
 }
-
-<i class="fa-solid fa-pool-8-ball"></i>
